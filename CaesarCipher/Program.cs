@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-string msg = "HELLO";
+﻿string msg = "HELLO";
 int key = 20;
 
 
