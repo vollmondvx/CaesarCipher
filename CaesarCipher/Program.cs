@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-string msg = "HELLO,";
+﻿string msg = "HELLO,";
 int key = 20;
 
 static string Encrypt(string msg, int key)
