@@ -11,7 +11,7 @@ if (numbersOfArgs == 0)
 
 switch (args[0])
 {
-    case "-ek":
+    case "encrypt":
         if (numbersOfArgs == 1)
         {
             Console.WriteLine("Missing other parameters.");
@@ -19,6 +19,8 @@ switch (args[0])
         }
         if (Int32.TryParse(args[1], out key))
         {
+            //Exit if key is negative
+            if (key < 0)
             //Error handling for message parameter
             try
             {
@@ -40,9 +42,16 @@ switch (args[0])
         }
         else
         {
-            Console.WriteLine("The key has to be a integer between 1 and 25");
+            Console.WriteLine($"Expected a key but found: {args[1]}");
             Environment.Exit(-1);
         }
+        break;
+
+    case "decrypt":
+        break;
+    case "crack":
+        break;
+    case "help":
         break;
     default:
         Console.WriteLine("Missing and/or Invalid arguments.");
@@ -77,20 +86,7 @@ static string Encrypt(string msg, int key)
 
 static void Help()
 {
-    Console.WriteLine("Usage: CaesarCipher [OPTION]... [TEXT]...");
-    Console.WriteLine("Encrypt, Decrypt with a key or Bruteforcing Caesar Cipher...");
-    Console.WriteLine("-e\tEncrypt");
-    Console.WriteLine();
-    Console.WriteLine("\t-k\tSpecify a key, if this option is missed, the cipher will use a random generated key");
-    Console.WriteLine();
-    Console.WriteLine("-d\tDecrypt");
-    Console.WriteLine();
-    Console.WriteLine("\t-k\tSpecify a key, if this option is missed, the cipher will use the bruteforcing option");
-    Console.WriteLine();
-    Console.WriteLine("-ek\tShorting for encryption with a key");
-    Console.WriteLine("-dk\tShorting for decryption with a key");
-    Console.WriteLine();
-    Console.WriteLine("-b\tBruteforce, the result will be generate in a file");
+    // Describe usage. This tool will use a subcommand style for cli design instead of GNU style.
 
 }
 

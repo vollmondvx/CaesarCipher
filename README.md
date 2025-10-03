@@ -1,0 +1,1 @@
+The algorithm for caesar cipher is done. Now I'm turning it in CLI tool using a subcommand design style.
